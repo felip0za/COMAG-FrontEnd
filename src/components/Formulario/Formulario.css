@@ -1,0 +1,63 @@
+.orcamento-contato-wrapper {
+    background-color: #111;
+    color: #fff;
+    padding: 40px 20px;
+  }
+  
+  .orcamento-contato-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+  }
+  
+  .orcamento-form {
+    flex: 1 1 600px;
+  }
+  
+  .form-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  
+  .form-input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .full-width {
+    grid-column: span 2;
+  }
+  
+  .form-button {
+    grid-column: span 2;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .contato-info {
+    flex: 1 1 300px;
+  }
+  
+  .contato-list {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  

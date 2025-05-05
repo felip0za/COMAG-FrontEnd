@@ -1,6 +1,7 @@
 import React from "react";
 import "./Landpage.css";
 import Navbar from "../../components/Navbar/Navbar";
+import Formulario from "../../components/Formulario/Formulario";
 
 export default function Landpage() {
   return (
@@ -51,28 +52,9 @@ export default function Landpage() {
               allowFullScreen
             ></iframe>
           </div>
-          <div className="address">
-            <h3>Contatos</h3>
-            <p>📱 <a href="https://wa.me/5585991499829" target="_blank" rel="noopener noreferrer">Enviar WhatsApp</a></p>
-            <p>📞 (85) 99149-9829</p>
-            <p>📘 <a href="https://facebook.com/comag.compressores" target="_blank" rel="noopener noreferrer">Página do Facebook</a></p>
-            <p>📸 <a href="https://instagram.com/comag.compressores" target="_blank" rel="noopener noreferrer">comag.compressores</a></p>
-            <p>✉️ <a href="mailto:consul.barbosa@hotmail.com">consul.barbosa@hotmail.com</a></p>
-            <p>📍 Avenida Governador Raul Barbosa, 6294, Aerolândia - Fortaleza/CE</p>
-          </div>
         </section>
 
-        <footer className="footer">
-          <form className="contact-form">
-            <input type="text" placeholder="Nome" />
-            <input type="email" placeholder="Email" />
-            <input type="text" placeholder="Mensagem" />
-            <button type="submit">Enviar</button>
-          </form>
-          <div className="footer-info">
-            <p>© 2025 Nome da Empresa. Todos os direitos reservados.</p>
-          </div>
-        </footer>
+        <Formulario />
       </div>
     </>
   );

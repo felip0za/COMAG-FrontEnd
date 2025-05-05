@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Servicos.css";
+import Formulario from "../../components/Formulario/Formulario";
 
-function Servicos(){
+function Servicos() {
   return (
     <div className="servico-page">
       <Navbar />
@@ -41,39 +42,7 @@ function Servicos(){
           </div>
         </div>
 
-        <div className="orcamento-contato">
-          <div className="form-orcamento">
-            <h3 className="titulo-formulario">Solicite seu orçamento</h3>
-            <form className="formulario">
-              <input type="email" placeholder="Email" className="input" />
-              <input type="text" placeholder="Telefone" className="input" />
-              <input
-                type="text"
-                placeholder="Categoria de Serviço"
-                className="input"
-              />
-              <input type="text" placeholder="Estado" className="input" />
-              <textarea
-                placeholder="Mensagem"
-                className="textarea"
-                rows={4}
-              />
-              <button type="submit" className="botao-enviar">Enviar</button>
-            </form>
-          </div>
-
-          <div className="contatos">
-            <h3 className="titulo-contatos">Contatos</h3>
-            <ul className="lista-contatos">
-              <li>📞 WhatsApp</li>
-              <li>📍 Endereço físico</li>
-              <li>📘 Página do Facebook</li>
-              <li>📸 Perfil do Instagram</li>
-              <li>✉️ schulzformat@hotmail.com</li>
-              <li>🌐 www.schulzformat.com.br</li>
-            </ul>
-          </div>
-        </div>
+        <Formulario />
       </div>
 
       <footer className="rodape">
@@ -81,6 +50,6 @@ function Servicos(){
       </footer>
     </div>
   );
-};
+}
 
 export default Servicos;
