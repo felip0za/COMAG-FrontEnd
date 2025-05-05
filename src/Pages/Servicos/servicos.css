@@ -13,6 +13,7 @@
     color: gray;
     font-size: 14px;
     margin-bottom: 10px;
+    cursor: pointer;
   }
   
   .titulo-principal {
@@ -49,6 +50,7 @@
   .nome-servico {
     font-size: 20px;
     font-weight: bold;
+    color: #000;
   }
   
   .texto-preco {
@@ -94,10 +96,18 @@
   
   .item-relacionado {
     width: 160px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .item-relacionado:hover {
+    transform: scale(1.03);
   }
   
   .imagem-relacionado {
     background-color: #ddd;
+    background-size: cover;
+    background-position: center;
     height: 120px;
     margin-bottom: 8px;
   }
@@ -112,57 +122,9 @@
     color: #777;
   }
   
+  /* Ocultar seção de orçamento e contato caso não esteja mais sendo usada */
   .orcamento-contato {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 60px;
-  }
-  
-  .form-orcamento,
-  .contatos {
-    flex: 1 1 300px;
-  }
-  
-  .titulo-formulario,
-  .titulo-contatos {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-  
-  .formulario {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  
-  .input,
-  .textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  .textarea {
-    resize: none;
-    width: 100%;
-  }
-  
-  .botao-enviar {
-    background-color: #000;
-    color: white;
-    padding: 12px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .lista-contatos {
-    list-style: none;
-    padding: 0;
-    color: #444;
-    font-size: 14px;
+    display: none;
   }
   
   .rodape {

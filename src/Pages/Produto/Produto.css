@@ -1,0 +1,121 @@
+.produto-page {
+    background-color: #f5f7fa;
+    font-family: Arial, sans-serif;
+    padding-bottom: 50px;
+  }
+  
+  .container-produto {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .voltar {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .titulo-produto {
+    font-size: 24px;
+    margin: 10px 0 5px;
+    color: #000;
+  }
+  
+  .descricao-breve {
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  .detalhes-produto {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+  }
+  
+  .imagem-produto {
+    width: 350px;
+    height: 350px;
+    background-color: #ddd;
+  }
+  
+  .info-produto {
+    flex: 1;
+  }
+  
+  .nome-produto {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #000;
+  }
+  
+  .precos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .preco-atual {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .preco-antigo {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  .desconto {
+    background: #e0e0e0;
+    color: #444;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+  
+  .descricao-completa {
+    margin: 20px 0;
+    color: #444;
+  }
+  
+  .estoque {
+    margin: 20px 0;
+  }
+  
+  .botao-comprar {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .titulo-relacionados {
+    font-size: 20px;
+    margin: 40px 0 20px;
+  }
+  
+  .produtos-relacionados {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 30px;
+  }
+  
+  .item-relacionado {
+    min-width: 150px;
+    text-align: center;
+  }
+  
+  .imagem-relacionada {
+    width: 100%;
+    height: 120px;
+    background-color: #ccc;
+    margin-bottom: 10px;
+  }
+  

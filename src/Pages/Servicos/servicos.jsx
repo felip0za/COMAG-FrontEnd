@@ -1,9 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
-import "./Servicos.css";
 import Formulario from "../../components/Formulario/Formulario";
+import "./Servicos.css";
 
 function Servicos() {
+  const navigate = useNavigate();
+
   return (
     <div className="servico-page">
       <Navbar />
@@ -30,15 +33,24 @@ function Servicos() {
         </div>
 
         <div className="relacionados">
-          <h3 className="titulo-relacionados">Serviços Relacionados</h3>
+          <h3 className="titulo-relacionados">Serviço Relacionado</h3>
           <div className="lista-relacionados">
-            {[...Array(5)].map((_, index) => (
-              <div key={index} className="item-relacionado">
-                <div className="imagem-relacionado" />
-                <p className="nome-relacionado">Serviço {index + 2}</p>
-                <p className="descricao-relacionado">Descrição</p>
-              </div>
-            ))}
+            <div
+              className="item-relacionado"
+              onClick={() => navigate("/produto")}
+              style={{ cursor: "pointer" }}
+            >
+              <div
+                className="imagem-relacionado"
+                style={{
+                  backgroundImage: `url("url_da_imagem_1.jpg")`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
+              <p className="nome-relacionado">Produto 1</p>
+              <p className="descricao-relacionado">Descrição do Produto 1</p>
+            </div>
           </div>
         </div>
 
