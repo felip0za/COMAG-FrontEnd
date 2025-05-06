@@ -1,138 +1,134 @@
-.servico-page {
-    font-family: sans-serif;
-    background-color: #f9f9f9;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 20px;
-  }
-  
-  .back-link {
-    color: gray;
-    font-size: 14px;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-  
-  .titulo-principal {
-    font-size: 28px;
-    font-weight: 600;
-    color: #000;
-  }
-  
-  .descricao-breve {
-    color: gray;
-    margin-bottom: 30px;
-  }
-  
-  .conteudo-servico {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 60px;
-  }
-  
-  .imagem-servico {
-    flex: 1 1 300px;
-    background-color: #ddd;
-    height: 320px;
-  }
-  
-  .detalhes-servico {
-    flex: 1 1 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .nome-servico {
-    font-size: 20px;
-    font-weight: bold;
-    color: #000;
-  }
-  
-  .texto-preco {
-    margin-top: 10px;
-    color: #555;
-  }
-  
-  .valor-servico {
-    font-size: 24px;
-    font-weight: bold;
-    color: #000;
-  }
-  
-  .descricao-servico {
-    margin: 20px 0;
-    color: #666;
-  }
-  
-  .botao-orcamento {
-    background-color: #000;
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-    width: fit-content;
-  }
-  
-  .relacionados {
-    margin-top: 40px;
-  }
-  
-  .titulo-relacionados {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-  
-  .lista-relacionados {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  
-  .item-relacionado {
-    width: 160px;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .item-relacionado:hover {
-    transform: scale(1.03);
-  }
-  
-  .imagem-relacionado {
-    background-color: #ddd;
-    background-size: cover;
-    background-position: center;
-    height: 120px;
-    margin-bottom: 8px;
-  }
-  
-  .nome-relacionado {
-    font-weight: 600;
-    font-size: 14px;
-  }
-  
-  .descricao-relacionado {
-    font-size: 12px;
-    color: #777;
-  }
-  
-  /* Ocultar seção de orçamento e contato caso não esteja mais sendo usada */
-  .orcamento-contato {
-    display: none;
-  }
-  
-  .rodape {
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin-top: 60px;
-    font-size: 14px;
-  }
-  
+.pagina-servico {
+  font-family: sans-serif;
+  background-color: #f9f9f9;
+}
+
+.conteiner-servico {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.link-voltar {
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.titulo-servico {
+  font-size: 28px;
+  font-weight: 600;
+  color: #000;
+}
+
+.texto-breve {
+  color: gray;
+  margin-bottom: 30px;
+}
+
+.bloco-servico {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.imagem-servico {
+  flex: 1 1 300px;
+  background-color: #ddd;
+  height: 320px;
+}
+
+.info-servico {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nome-servico {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+.texto-preco {
+  margin-top: 10px;
+  color: #555;
+}
+
+.valor-servico {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.descricao-servico {
+  margin: 20px 0;
+  color: #666;
+}
+
+.botao-orcamento {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.secao-relacionados {
+  margin-top: 40px;
+}
+
+.titulo-relacionados {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.lista-relacionados {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.item-relacionado {
+  width: 160px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.item-relacionado:hover {
+  transform: scale(1.03);
+}
+
+.imagem-relacionado {
+  background-color: #ddd;
+  background-size: cover;
+  background-position: center;
+  height: 120px;
+  margin-bottom: 8px;
+}
+
+.nome-relacionado {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.descricao-relacionado {
+  font-size: 12px;
+  color: #777;
+}
+
+.rodape {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  font-size: 14px;
+}

@@ -7,20 +7,25 @@ import "./Servicos.css";
 function Servicos() {
   const navigate = useNavigate();
 
+  const handleClick = (e) => {
+    e.preventDefault(e);
+    navigate("/produtos");
+  };
+
   return (
-    <div className="servico-page">
+    <div className="pagina-servico">
       <Navbar />
 
-      <div className="container">
-        <div className="back-link">&lt; Voltar</div>
+      <div className="conteiner-servico">
+        <button onClick={handleClick} className="link-voltar">&lt; Voltar</button>
 
-        <h1 className="titulo-principal">SERVIÇO</h1>
-        <p className="descricao-breve">Breve descrição</p>
+        <h1 className="titulo-servico">SERVIÇO</h1>
+        <p className="texto-breve">Breve descrição</p>
 
-        <div className="conteudo-servico">
+        <div className="bloco-servico">
           <div className="imagem-servico" />
 
-          <div className="detalhes-servico">
+          <div className="info-servico">
             <h2 className="nome-servico">NOME COMPLETO DO SERVIÇO</h2>
             <p className="texto-preco">A partir de:</p>
             <p className="valor-servico">R$700</p>
@@ -32,12 +37,11 @@ function Servicos() {
           </div>
         </div>
 
-        <div className="relacionados">
+        <div className="secao-relacionados">
           <h3 className="titulo-relacionados">Serviço Relacionado</h3>
           <div className="lista-relacionados">
             <div
               className="item-relacionado"
-              onClick={() => navigate("/produto")}
               style={{ cursor: "pointer" }}
             >
               <div

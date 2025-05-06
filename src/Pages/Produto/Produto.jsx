@@ -1,15 +1,21 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Formulario from "../../components/Formulario/Formulario";
+import { useNavigate, useNavigate } from 'react-router-dom';
 import "./Produto.css";
 
 function Produto() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(-1); // Voltar uma página no histórico
+  };
   return (
     <div className="produto-page">
       <Navbar />
 
       <div className="container-produto">
-        <div className="voltar">&lt; Voltar</div>
+      <button onClick={handleClick} className="voltar">&lt; Voltar</button>
+
         <h1 className="titulo-produto">PRODUTO 1</h1>
         <p className="descricao-breve">Breve descrição</p>
 

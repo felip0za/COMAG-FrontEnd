@@ -8,25 +8,26 @@ function Produtos () {
   const navigate = useNavigate();
 
   const produtos = [
-    { name: 'Produto 1', price: 'R$260', id: 1 },
-    { name: 'Compressor', price: 'R$2.199', id: 2 },
-    { name: 'Lubrificante X', price: 'R$89', id: 3 },
-    { name: 'Válvula para Y', price: 'R$150', id: 4 },
-    { name: 'Atuador', price: 'R$900', id: 5 },
-    { name: 'Máquina de embalagem', price: 'R$324', id: 6 },
+    { id: 1, name: 'Produto 1', price: 'R$260' },
+    { id: 2, name: 'Compressor', price: 'R$2.199'},
+    { id: 3, name: 'Lubrificante X', price: 'R$89'},
+    { id: 4, name: 'Válvula para Y', price: 'R$150'},
+    { id: 5, name: 'Atuador', price: 'R$900'},
+    { id: 6, name: 'Máquina de embalagem', price: 'R$324'},
   ];
 
-  const handleProductClick = (id) => {
-    navigate(`/produto/${id}`);
+  const handleProductClick = (e) => {
+    e.preventDefault(e);
+    navigate(`/produto`);
   };
 
   return (
     <>
       <Navbar />
-      <div className="container">
-        <aside className="sidebar">
-          <h2>Filtros <span className="reset">Limpar filtros</span></h2>
-          <div className="filter-group">
+      <div className="pagina-produtos">
+        <aside className="filtro-lateral">
+          <h2>Filtros <span className="limpar-filtros">Limpar filtros</span></h2>
+          <div className="grupo-filtro">
             <strong>Categorias</strong>
             {['conexões', 'mangueiras', 'filtros', 'válvulas', 'preço', 'marca', 'tipo', 'aplicação'].map(cat => (
               <label key={cat}>
@@ -36,35 +37,37 @@ function Produtos () {
           </div>
         </aside>
 
-        <main className="main-content">
-          <div className="header">
+        <main className="conteudo-principal">
+          <div className="cabecalho-produtos">
             <div>
               <h1>Produtos</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
-            <div className="sort-box">
-              <label>Sort By&nbsp;</label>
+            <div className="caixa-ordenacao">
+              <label>Ordenar por&nbsp;</label>
               <select>
                 <option>preço</option>
               </select>
-              <p className="product-count">Mostrando {produtos.length} Produtos</p>
+              <p className="quantidade-produtos">Mostrando {produtos.length} Produtos</p>
             </div>
           </div>
 
-          {produtos.map((product) => (
-            <div
-              className="product-card"
-              key={product.id}
-              onClick={() => handleProductClick(product.id)}
-              style={{ cursor: 'pointer' }}
-            >
-              <div className="image-placeholder" />
-              <h4>{product.name}</h4>
-              <p>{product.price}</p>
-            </div>
-          ))}
+          <div className="lista-produtos">
+            {produtos.map((product) => (
+              <div
+                className="cartao-produto"
+                key={product.id}
+                onClick={handleProductClick}
+                style={{ cursor: 'pointer' }}
+              >
+                <div className="imagem-produto" />
+                <h4>{product.name}</h4>
+                <p>{product.price}</p>
+              </div>
+            ))}
+          </div>
 
-          <div className="load-more">
+          <div className="carregar-mais">
             <button>Carregar mais produtos</button>
           </div>
         </main>
