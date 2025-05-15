@@ -9,7 +9,7 @@ const NavbarAdmin = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleNavigateToServices = () => {
-    navigate("/meus-servicos");
+    navigate("/servicespage");
   };
 
   const handleNavigateToProducts = () => {
@@ -23,6 +23,7 @@ const NavbarAdmin = () => {
   };
 
   return (
+    <>
     <nav className="navbarAdmin">
       <div className="navbarAdmin-left">
         <img src={comag} alt="Logo da Comag" className="navbarAdmin-logo" />
@@ -49,6 +50,7 @@ const NavbarAdmin = () => {
         </div>
       </div>
     </nav>
+    </>
   );
 };
 

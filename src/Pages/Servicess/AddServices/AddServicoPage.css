@@ -1,0 +1,148 @@
+.adicionar-servico-container {
+  background-color: #f7f9fc;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.voltar-link {
+  font-size: 0.75rem;
+  color: #555;
+  margin-bottom: 1rem;
+  display: inline-block;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.titulo-principal {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.subtitulo {
+  color: #888;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.formulario-wrapper {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.imagem-upload {
+  flex: 1;
+  max-width: 350px;
+}
+
+.imagem-placeholder {
+  background-color: #ddd;
+  border-radius: 4px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+}
+
+.icone-upload {
+  background-image: url("data:image/svg+xml;base64,..."); /* coloque um ícone ou use SVG inline */
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+}
+
+.texto-upload {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.imagem-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.input-file {
+  display: none;
+}
+
+.dados-servico {
+  flex: 2;
+  background-color: #eee;
+  padding: 2rem;
+  border-radius: 4px;
+}
+
+.dados-titulo {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.campo-duplo {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.campo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.input,
+.textarea,
+.select {
+  border: none;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  outline: none;
+}
+
+.textarea {
+  resize: none;
+  height: 80px;
+}
+
+.botoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-cancelar {
+  background: #ccc;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.btn-publicar {
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-size: 0.875rem;
+  cursor: pointer;
+}

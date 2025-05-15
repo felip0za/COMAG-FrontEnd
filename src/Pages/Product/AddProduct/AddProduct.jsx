@@ -1,7 +1,7 @@
 import "./AddProduct.css";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import NavbarAdmin from '../../components/NavbarAdmin/NavbarAdmin';
+import NavbarAdmin from '../../../components/NavbarAdmin/NavbarAdmin';
 import { useState } from "react";
 
 const AddProduct = () => {
