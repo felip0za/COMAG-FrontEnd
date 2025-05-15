@@ -10,6 +10,7 @@ import AddProduct from './Pages/Product/AddProduct/AddProduct';
 import ServicesPage from './Pages/ServicesPage/ServicesPage';
 import AddServicoPage from './Pages/Servicess/AddServices/AddServicoPage';
 import EditServicoPage from './Pages/Servicess/EditServicoPage/EditServicoPage';
+import EditProductPage from './Pages/Product/EditProduct/EditProductPage';
 
 function MainRoutes() {
   
@@ -25,9 +26,10 @@ function MainRoutes() {
       <Route path='/login' element={<Login />}/>
       <Route path='/productsPages' element={<ProductsPage />}/>
       <Route path='/addproduct' element={<AddProduct />}/>
+      <Route path='/editproduct' element={<EditProductPage />}/>
       <Route path='/servicespage' element={<ServicesPage />}/>
-      <Route path='/addservicopage' element={<AddServicoPage />}/>
-      <Route path='/editservicopage' element={<EditServicoPage />}/>
+      <Route path='/addservico' element={<AddServicoPage />}/>
+      <Route path='/editservico' element={<EditServicoPage />}/>
      </Routes>
     </>
   );

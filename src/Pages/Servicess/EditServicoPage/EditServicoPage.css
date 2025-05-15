@@ -1,83 +1,62 @@
-/* EditarServicoPage.css */
-
+/* EditarServicoPage.css - NOVO VISUAL */
 .editar-servico-container {
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 1100px;
+  margin: 2rem auto;
   padding: 2rem;
-  font-family: 'Arial', sans-serif;
-  background-color: #f9f9f9;
-}
-
-.voltar-link {
-  background: none;
-  border: none;
-  color: #007bff;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-bottom: 1rem;
-  text-decoration: underline;
-}
-
-.titulo-principal {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.subtitulo {
-  color: #666;
-  margin-bottom: 2rem;
-}
-
-.formulario-wrapper {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.imagem-upload {
+.voltar-link {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.titulo-principal {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.subtitulo {
+  color: #888;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.formulario-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.imagem-upload {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .imagem-placeholder {
-  width: 240px;
-  height: 240px;
-  border: 2px dashed #ccc;
-  border-radius: 8px;
+  width: 100%;
+  max-width: 320px;
+  height: 320px;
+  border-radius: 4px;
+  background-color: #e5e5e5;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  background-color: #fff;
-  transition: border-color 0.3s;
-}
-
-.imagem-placeholder:hover {
-  border-color: #007bff;
-}
-
-.icone-upload {
-  width: 40px;
-  height: 40px;
-  background-color: #007bff;
-  border-radius: 50%;
-  margin-bottom: 0.5rem;
-}
-
-.texto-upload {
-  color: #888;
-  font-size: 0.9rem;
+  color: #666;
   text-align: center;
-}
-
-.imagem-preview {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
 }
 
 .input-file {
@@ -85,96 +64,104 @@
 }
 
 .dados-servico {
-  background-color: #fff;
+  flex: 1.5;
+  background-color: #e5e5e5;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .dados-titulo {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.campo-duplo {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .campo {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  gap: 0.25rem;
 }
 
 .label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #444;
+  font-size: 0.75rem;
+  color: #555;
 }
 
 .input,
 .textarea,
 .select {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  background-color: #fefefe;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  background: transparent;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: #000;
 }
 
 .textarea {
+  min-height: 80px;
   resize: vertical;
-  min-height: 100px;
+}
+
+.quantidade-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quantidade-wrapper button {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
 }
 
 .botoes {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  margin-top: 2rem;
 }
 
 .btn-cancelar,
 .btn-publicar {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 2px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .btn-cancelar {
-  background-color: #f44336;
-  color: #fff;
-}
-
-.btn-cancelar:hover {
-  background-color: #d32f2f;
+  background-color: #ccc;
+  color: #000;
 }
 
 .btn-publicar {
-  background-color: #4caf50;
+  background-color: #000;
   color: #fff;
 }
 
-.btn-publicar:hover {
-  background-color: #388e3c;
-}
-
 /* Responsivo */
-@media (max-width: 600px) {
-  .campo-duplo {
+@media (max-width: 768px) {
+  .formulario-wrapper {
     flex-direction: column;
   }
 
   .imagem-placeholder {
     width: 100%;
-    height: auto;
-    aspect-ratio: 1/1;
+    height: 240px;
+  }
+
+  .dados-servico {
+    padding: 1rem;
   }
 }

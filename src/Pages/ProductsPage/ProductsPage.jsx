@@ -23,6 +23,10 @@ export default function ProductsPage() {
     navigate("/addproduct");
   };
 
+  const handleEdit = () => {
+    navigate("/editproduct");
+  };
+
   return (
     <>
       <NavbarAdmin />
@@ -67,7 +71,7 @@ export default function ProductsPage() {
             {products.map((product, idx) => (
               <div key={idx} className="product-card">
                 <div className="product-image">
-                  <button className="edit-button">Editar</button>
+                  <button className="edit-button" onClick={handleEdit}>Editar</button>
                 </div>
                 <p className="product-name">{product.name}</p>
                 <p className="product-price">{product.price}</p>

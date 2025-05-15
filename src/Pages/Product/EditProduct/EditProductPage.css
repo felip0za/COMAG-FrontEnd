@@ -1,0 +1,136 @@
+.product-editor {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.left-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-upload {
+  width: 100%;
+  max-width: 320px;
+  height: 320px;
+  background-color: #e5e5e5;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.right-section {
+  flex: 1.5;
+  background-color: #e5e5e5;
+  padding: 2rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-section h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+label {
+  font-size: 0.75rem;
+  color: #555;
+}
+
+input,
+textarea,
+select {
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  background: transparent;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #000;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cancel-button,
+.save-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: #ccc;
+  color: #000;
+}
+
+.save-button {
+  background-color: #000;
+  color: #fff;
+}
+
+.right-section,
+.right-section label,
+.right-section h2,
+.right-section span,
+input,
+textarea,
+select {
+  color: #000;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .product-editor {
+    flex-direction: column;
+  }
+
+  .image-upload {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+
+  .right-section {
+    padding: 1rem;
+  }
+}

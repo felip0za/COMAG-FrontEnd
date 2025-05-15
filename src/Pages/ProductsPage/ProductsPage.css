@@ -32,11 +32,12 @@
 
 .clear-filters {
   font-size: 12px;
-  color: #1d4ed8;
+  color: #ffffff;
   background: none;
   border: none;
   cursor: pointer;
   margin-bottom: 1rem;
+  background-color: #000;
 }
 
 .category-label {
@@ -46,21 +47,37 @@
   margin-bottom: 0.5rem;
 }
 
+/* CATEGORIAS AJUSTADAS */
 .filter-list {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .filter-item {
   display: flex;
   align-items: center;
-  margin-bottom: 6px;
+  gap: 0.5rem;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.filter-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #000;
+  cursor: pointer;
 }
 
 .filter-item label {
-  margin-left: 0.5rem;
+  cursor: pointer;
   font-size: 14px;
 }
+/* FIM DO AJUSTE */
 
 .main-content {
   flex: 1;

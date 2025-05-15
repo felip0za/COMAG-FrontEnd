@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./EditServicoPage.css";
+import NavbarAdmin from "../../../components/NavbarAdmin/NavbarAdmin";
 
 export default function EditServicoPage() {
   const [imagemPreview, setImagemPreview] = useState(null);
@@ -40,6 +41,8 @@ export default function EditServicoPage() {
   };
 
   return (
+    <>
+    <NavbarAdmin />
     <div className="editar-servico-container">
       <button onClick={() => navigate(-1)} className="voltar-link">&larr; Voltar</button>
       <h1 className="titulo-principal">Editar Serviço</h1>
@@ -128,5 +131,6 @@ export default function EditServicoPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
