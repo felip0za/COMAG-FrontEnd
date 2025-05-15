@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import comag from "/src/assets/comag.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && searchTerm.trim() !== "") {
+      navigate(`/buscar?termo=${encodeURIComponent(searchTerm.trim())}`);
+    }
+  };
 
   return (
     <header className="navbar-container">
@@ -25,7 +32,13 @@ export default function Navbar() {
           <li onClick={() => navigate("/duvidas")} style={{ cursor: "pointer" }}>Dúvidas</li>
         </ul>
         <div className="search">
-          <input type="text" placeholder="🔍 Pesquisar" />
+          <input
+            type="text"
+            placeholder="🔍 Pesquisar"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleSearch}
+          />
         </div>
       </nav>
     </header>

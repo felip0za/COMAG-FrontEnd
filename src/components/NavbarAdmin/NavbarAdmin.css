@@ -1,0 +1,48 @@
+.navbarAdmin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #f1f4f8; /* fundo claro como na imagem */
+  font-family: Arial, sans-serif;
+}
+
+.navbarAdmin-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbarAdmin-logo {
+  height: 24px; /* ajuste conforme o tamanho desejado */
+}
+
+.navbarAdmin-left a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+
+.navbarAdmin-left a strong {
+  font-weight: bold;
+}
+
+.navbarAdmin-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-icon {
+  font-size: 14px;
+  color: #666;
+}
+
+.navbarAdmin-right input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  padding: 4px 6px;
+  font-size: 13px;
+  outline: none;
+}

@@ -1,7 +1,6 @@
-import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Formulario from "../../components/Formulario/Formulario";
-import { useNavigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "./Produto.css";
 
 function Produto() {
