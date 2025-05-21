@@ -1,98 +1,68 @@
-/* EditarServicoPage.css - NOVO VISUAL */
-.editar-servico-container {
+.service-editor {
   max-width: 1100px;
   margin: 2rem auto;
   padding: 2rem;
   display: flex;
-  flex-direction: column;
   gap: 2rem;
 }
 
-.voltar-link {
-  background: none;
-  border: none;
-  color: #000;
-  font-size: 0.75rem;
-  cursor: pointer;
-  text-decoration: none;
-  margin-bottom: 1rem;
-  display: inline-block;
-}
-
-.titulo-principal {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 0.25rem;
-}
-
-.subtitulo {
-  color: #888;
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
-}
-
-.formulario-wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  align-items: flex-start;
-}
-
-.imagem-upload {
+.left-section {
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.imagem-placeholder {
+.image-upload {
   width: 100%;
   max-width: 320px;
   height: 320px;
-  border-radius: 4px;
   background-color: #e5e5e5;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #666;
   text-align: center;
   font-size: 0.875rem;
+  color: #666;
   cursor: pointer;
 }
 
-.input-file {
-  display: none;
-}
-
-.dados-servico {
+.right-section {
   flex: 1.5;
   background-color: #e5e5e5;
   padding: 2rem;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
-.dados-titulo {
-  font-size: 1.125rem;
+.right-section h2 {
+  font-size: 1.25rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.campo {
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.label {
+label {
   font-size: 0.75rem;
   color: #555;
 }
 
-.input,
-.textarea,
-.select {
+input,
+textarea,
+select {
   padding: 0.5rem;
   font-size: 0.875rem;
   border: none;
@@ -100,39 +70,27 @@
   background: transparent;
 }
 
-.input:focus,
-.textarea:focus,
-.select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: #000;
 }
 
-.textarea {
+textarea {
   min-height: 80px;
   resize: vertical;
 }
 
-.quantidade-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.quantidade-wrapper button {
-  background: none;
-  border: none;
-  font-size: 1.25rem;
-  cursor: pointer;
-}
-
-.botoes {
+.buttons {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
+  margin-top: 1.5rem;
 }
 
-.btn-cancelar,
-.btn-publicar {
+.cancel-button,
+.save-button {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   border: none;
@@ -140,28 +98,39 @@
   cursor: pointer;
 }
 
-.btn-cancelar {
+.cancel-button {
   background-color: #ccc;
   color: #000;
 }
 
-.btn-publicar {
+.save-button {
   background-color: #000;
   color: #fff;
 }
 
+.right-section,
+.right-section label,
+.right-section h2,
+.right-section span,
+input,
+textarea,
+select {
+  color: #000;
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
-  .formulario-wrapper {
+  .service-editor {
     flex-direction: column;
   }
 
-  .imagem-placeholder {
+  .image-upload {
     width: 100%;
-    height: 240px;
+    height: auto;
+    aspect-ratio: 1/1;
   }
 
-  .dados-servico {
+  .right-section {
     padding: 1rem;
   }
 }

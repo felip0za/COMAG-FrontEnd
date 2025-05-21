@@ -29,7 +29,6 @@ export default function Navbar() {
           <li onClick={() => navigate("/servicos")} style={{ cursor: "pointer" }}>Serviços</li>
           <li onClick={() => navigate("/produtos")} style={{ cursor: "pointer" }}>Produtos</li>
           <li onClick={() => navigate("/contatos")} style={{ cursor: "pointer" }}>Contatos</li>
-          <li onClick={() => navigate("/duvidas")} style={{ cursor: "pointer" }}>Dúvidas</li>
         </ul>
         <div className="search">
           <input

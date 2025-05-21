@@ -1,8 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";  // Importa useNavigate
 import "./ServicesPage.css";
 import NavbarAdmin from "../../components/NavbarAdmin/NavbarAdmin";
+import api from "../../API/API";
 
 export default function ServicesPage() {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();  // Hook navigate
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      setLoading(true);
+      try {
+        const response = await api.get("/api/services");
+        setServices(response.data);
+      } catch (error) {
+        console.error("Erro ao carregar serviços:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
+  // Ajusta handleEdit para receber id
+  const handleEdit = (id) => {
+    navigate(`/editservico/${id}`);
+  };
+
+  const handleAdd = () => {
+    navigate("/addservico");
+  };
+
   return (
     <>
       <NavbarAdmin />
@@ -10,40 +41,37 @@ export default function ServicesPage() {
         <div className="servicos-header">
           <div>
             <h1 className="servicos-title">Serviços</h1>
-            <p className="servicos-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <p className="servicos-description"></p>
           </div>
-          <button className="novo-servico-btn">+ Novo Serviço</button>
+          <button className="novo-servico-btn" onClick={handleAdd}>+ Novo Serviço</button>
         </div>
 
         <div className="servicos-content">
-          {/* Filtros */}
-          <aside className="servicos-filtros">
-            <h2 className="filtros-titulo">Filtros</h2>
-            <button className="limpar-filtros">Limpar filtros</button>
-            <div className="filtros-categorias">
-              <p className="categorias-label">Categorias</p>
-              {["conexão", "mangueiras", "filtros", "válvula", "preço", "marca", "tipo", "aplicação"].map((item) => (
-                <label key={item} className="filtro-item">
-                  <input type="checkbox" className="checkbox" />
-                  <span>{item}</span>
-                </label>
-              ))}
-            </div>
-          </aside>
+          {/* Filtros removidos */}
 
           {/* Cards de serviços */}
           <main className="servicos-cards">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="card-servico">
-                <div className="card-imagem"></div>
-                <button className="btn-editar">Editar</button>
-                <p className="card-titulo">{getTitulo(i)}</p>
-                <p className="card-descricao">{getDescricao(i)}</p>
-              </div>
-            ))}
+            {loading && <p>Carregando serviços...</p>}
+            {!loading && services.length === 0 && <p>Nenhum serviço encontrado.</p>}
+            {!loading &&
+              services.map((service) => (
+                <div key={service.id} className="card-servico">
+                  <div
+                    className="card-imagem"
+                    style={{
+                      backgroundImage: service.imageUrl
+                        ? `url(${service.imageUrl})`
+                        : undefined,
+                    }}
+                  ></div>
+                  {/* Passa o id para handleEdit */}
+                  <button className="btn-editar" onClick={() => handleEdit(service.id)}>
+                    Editar
+                  </button>
+                  <p className="card-titulo">{service.name}</p>
+                  <p className="card-descricao">R$:{Number(service.price).toFixed(2)}</p>
+                </div>
+              ))}
           </main>
         </div>
 
@@ -53,28 +81,4 @@ export default function ServicesPage() {
       </div>
     </>
   );
-}
-
-function getTitulo(index) {
-  const titulos = [
-    "Venda de Tubulações",
-    "Assessoria Técnica",
-    "Instalação de Redes de Ar",
-    "Manutenção de Bombas",
-    "Peças para Compressores",
-    "Venda de Compressores",
-  ];
-  return titulos[index] || "Serviço";
-}
-
-function getDescricao(index) {
-  const descricoes = [
-    "Materiais de ...",
-    "Orientação e ...",
-    "Avaliação e ...",
-    "Serviço de Manu..",
-    "Peças de reposi...",
-    "Compressores",
-  ];
-  return descricoes[index] || "Descrição";
 }

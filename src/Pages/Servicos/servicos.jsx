@@ -1,70 +1,113 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from "../../components/Navbar/Navbar";
-import Formulario from "../../components/Formulario/Formulario";
-import "./Servicos.css";
+import './Servicos.css';
+import Formulario from '../../components/Formulario/Formulario';
+import api from '../../API/API';
 
 function Servicos() {
   const navigate = useNavigate();
+  const [services, setServices] = useState([]);
 
-  const handleClick = (e) => {
-    e.preventDefault(e);
-    navigate("/produtos");
+  // 🔄 Carregar serviços
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await api.get('/api/services');
+        setServices(response.data);
+      } catch (error) {
+        console.error("Erro ao carregar serviços:", error);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
+  // ▶️ Clique no serviço
+  const handleServiceClick = async (e, id) => {
+    e.preventDefault();
+    try {
+      const response = await api.get(`/api/services/${id}`);
+      const service = response.data;
+      navigate(`/servico/${id}`, { state: { service } });
+    } catch (error) {
+      console.error('Erro ao buscar serviço:', error);
+    }
   };
 
+  // 🏷️ Filtros disponíveis
+  const serviceTypes = ['Manutenção', 'Instalação', 'Consultoria', 'Limpeza', 'Técnico', 'Reparo'];
+
   return (
-    <div className="pagina-servico">
+    <>
       <Navbar />
 
-      <div className="conteiner-servico">
-        <button onClick={handleClick} className="link-voltar">&lt; Voltar</button>
-
-        <h1 className="titulo-servico">SERVIÇO</h1>
-        <p className="texto-breve">Breve descrição</p>
-
-        <div className="bloco-servico">
-          <div className="imagem-servico" />
-
-          <div className="info-servico">
-            <h2 className="nome-servico">NOME COMPLETO DO SERVIÇO</h2>
-            <p className="texto-preco">A partir de:</p>
-            <p className="valor-servico">R$700</p>
-            <p className="descricao-servico">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <button className="botao-orcamento">Solicitar orçamento</button>
+      <div className="pagina-servicos">
+        {/* 🔍 Filtro lateral */}
+        <aside className="filtro-lateral">
+          <h2>
+            Filtros <span className="limpar-filtros">Limpar filtros</span>
+          </h2>
+          <div className="grupo-filtro">
+            <strong>Tipos de Serviço</strong>
+            {serviceTypes.map(type => (
+              <label key={type}>
+                <input type="checkbox" /> {type}
+              </label>
+            ))}
           </div>
-        </div>
+        </aside>
 
-        <div className="secao-relacionados">
-          <h3 className="titulo-relacionados">Serviço Relacionado</h3>
-          <div className="lista-relacionados">
-            <div
-              className="item-relacionado"
-              style={{ cursor: "pointer" }}
-            >
-              <div
-                className="imagem-relacionado"
-                style={{
-                  backgroundImage: `url("url_da_imagem_1.jpg")`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              />
-              <p className="nome-relacionado">Produto 1</p>
-              <p className="descricao-relacionado">Descrição do Produto 1</p>
+        {/* 🎯 Conteúdo principal */}
+        <main className="conteudo-principal">
+          <div className="cabecalho-servicos">
+            <div>
+              <h1>Serviços</h1>
+              <p>Explore nossos serviços disponíveis</p>
+            </div>
+
+            <div className="caixa-ordenacao">
+              <label htmlFor="ordenacao">Ordenar por&nbsp;</label>
+              <select id="ordenacao">
+                <option value="preco">Preço</option>
+                <option value="duracao">Duração</option>
+              </select>
+              <p className="quantidade-servicos">
+                Mostrando {services.length} {services.length === 1 ? 'serviço' : 'serviços'}
+              </p>
             </div>
           </div>
-        </div>
 
-        <Formulario />
+          {/* 🛠️ Lista de serviços */}
+          <div className="lista-servicos">
+            {services.map(service => (
+              <div
+                className="cartao-servico"
+                key={service.id}
+                onClick={e => handleServiceClick(e, service.id)}
+                style={{ cursor: 'pointer' }}
+              >
+                <div className="imagem-servico">
+                  <img
+                    src={service.image || "https://via.placeholder.com/300x140.png?text=Serviço"}
+                    alt={service.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '6px' }}
+                  />
+                </div>
+                <h4>{service.name}</h4>
+                <p>R$ {Number(service.price).toFixed(2)}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="carregar-mais">
+            <button>Carregar mais serviços</button>
+          </div>
+        </main>
       </div>
 
-      <footer className="rodape">
-        COPYRIGHTS COMAB.COM. TODOS OS DIREITOS RESERVADOS
-      </footer>
-    </div>
+      <Formulario />
+    </>
   );
 }
 

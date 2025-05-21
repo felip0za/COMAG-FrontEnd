@@ -53,7 +53,7 @@ function Produtos() {
           <div className="cabecalho-produtos">
             <div>
               <h1>Produtos</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>tela de produtos para voce usar</p>
             </div>
             <div className="caixa-ordenacao">
               <label>Ordenar por&nbsp;</label>
@@ -65,16 +65,16 @@ function Produtos() {
           </div>
 
           <div className="lista-produtos">
-            {products.map((product) => (
+            {products.map((products) => (
               <div
                 className="cartao-produto"
-                key={product.id}
-                onClick={(e) => handleProductClick(e, product.id)}
+                key={products.id}
+                onClick={(e) => handleProductClick(e, products.id)}
                 style={{ cursor: 'pointer' }}
               >
                 <div className="imagem-produto" />
-                <h4>{product.name}</h4>
-                <p>{product.price}</p>
+                <h4>{products.name}</h4>
+                <p>R$:{Number(products.price).toFixed(2)}</p>
               </div>
             ))}
           </div>

@@ -1,0 +1,136 @@
+/* Estilos gerais */
+.pagina-service {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.conteiner-service {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Botão de voltar */
+.link-voltar {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.link-voltar:hover {
+  color: #000;
+}
+
+/* Títulos e subtítulos */
+.titulo-service {
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.texto-breve {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 40px;
+}
+
+/* Bloco principal do serviço */
+.bloco-service {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.imagem-service {
+  flex: 1 1 400px;
+  height: 320px;
+  background-color: #ddd;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+}
+
+.info-service {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+/* Informações do serviço */
+.nome-service {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.texto-preco {
+  font-size: 16px;
+  color: #555;
+}
+
+.valor-service {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111;
+  margin: 5px 0 20px;
+}
+
+.descricao-service {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Botão */
+.botao-orcamento {
+  background-color: #000;
+  color: #fff;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+.botao-orcamento:hover {
+  background-color: #333;
+}
+
+/* Rodapé */
+.rodape {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  margin-top: 60px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .bloco-service {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagem-service,
+  .info-service {
+    flex: 1 1 100%;
+  }
+
+  .info-service {
+    padding: 0;
+  }
+}

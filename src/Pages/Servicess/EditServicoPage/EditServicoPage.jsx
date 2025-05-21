@@ -1,136 +1,152 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from 'react';
+import './EditServicoPage.css';
 import { useNavigate, useParams } from "react-router-dom";
-import "./EditServicoPage.css";
-import NavbarAdmin from "../../../components/NavbarAdmin/NavbarAdmin";
+import NavbarAdmin from '../../../components/NavbarAdmin/NavbarAdmin';
+import api from '../../../API/API'; // importe sua instância axios
 
-export default function EditServicoPage() {
-  const [imagemPreview, setImagemPreview] = useState(null);
-  const [titulo, setTitulo] = useState("");
-  const [valor, setValor] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [categoria, setCategoria] = useState("");
-
+function EditServicoPage() {
   const navigate = useNavigate();
-  const { id } = useParams(); // caso deseje buscar por ID do serviço
+  const { id } = useParams(); // pegar id da URL
 
+  // Estado para armazenar dados do serviço e loading
+  const [service, setService] = useState({
+    name: '',
+    price: '',
+    description: '',
+    category: ''
+  });
+  const [loading, setLoading] = useState(true);
+
+  // Buscar dados do serviço ao montar componente
   useEffect(() => {
-    // Simula carregar dados do serviço com base no ID
-    const servicoExistente = {
-      titulo: "Instalação de Redes de Ar",
-      valor: "R$ 120,00",
-      descricao: "Serviço especializado em redes de ar.",
-      categoria: "instalacao",
-      imagemURL: null // ou um link para imagem se já existir
+    const fetchService = async () => {
+      try {
+        const res = await api.get(`/api/services/${id}`);
+        // Assumindo que o backend retorna { name, price, description, category }
+        setService({
+          name: res.data.name || '',
+          price: res.data.price || '',
+          description: res.data.description || '',
+          category: res.data.category || ''
+        });
+      } catch (error) {
+        console.error('Erro ao carregar serviço:', error);
+        alert('Erro ao carregar serviço');
+      } finally {
+        setLoading(false);
+      }
     };
 
-    setTitulo(servicoExistente.titulo);
-    setValor(servicoExistente.valor);
-    setDescricao(servicoExistente.descricao);
-    setCategoria(servicoExistente.categoria);
-    if (servicoExistente.imagemURL) {
-      setImagemPreview(servicoExistente.imagemURL);
-    }
+    fetchService();
   }, [id]);
 
-  const handleImagemChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const previewURL = URL.createObjectURL(file);
-      setImagemPreview(previewURL);
+  // Controlar inputs do formulário
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setService(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleCancel = () => {
+    navigate(-1);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await api.put(`/api/services/${id}`, service);
+      alert('Serviço atualizado com sucesso!');
+      navigate('/servicespage'); // ou a rota correta da lista de serviços
+    } catch (error) {
+      console.error('Erro ao atualizar serviço:', error);
+      alert('Erro ao atualizar serviço');
     }
   };
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+  if (loading) {
+    return <div>Carregando serviço...</div>;
+  }
+
   return (
     <>
-    <NavbarAdmin />
-    <div className="editar-servico-container">
-      <button onClick={() => navigate(-1)} className="voltar-link">&larr; Voltar</button>
-      <h1 className="titulo-principal">Editar Serviço</h1>
-      <p className="subtitulo">Editar um serviço</p>
-
-      <div className="formulario-wrapper">
-        {/* Imagem */}
-        <div className="imagem-upload">
-          <label htmlFor="upload-input" className="imagem-placeholder">
-            {imagemPreview ? (
-              <img src={imagemPreview} alt="Preview" className="imagem-preview" />
-            ) : (
-              <>
-                <div className="icone-upload"></div>
-                <p className="texto-upload">Edite a imagem do serviço</p>
-              </>
-            )}
-          </label>
-          <input
-            id="upload-input"
-            type="file"
-            accept="image/*"
-            onChange={handleImagemChange}
-            className="input-file"
-          />
+      <NavbarAdmin />
+      <div className="service-editor">
+        <div className="left-section">
+          <div className="image-upload">
+            <span>Edite a imagem do serviço</span>
+            {/* Aqui você pode adicionar funcionalidade para upload da imagem */}
+          </div>
         </div>
-
-        {/* Formulário */}
-        <div className="dados-servico">
-          <h2 className="dados-titulo">Dados do serviço</h2>
-
-          <div className="campo-duplo">
-            <div className="campo">
-              <label htmlFor="titulo" className="label">Título</label>
+        <div className="right-section">
+          <button className="back-button" onClick={handleBack}>← Voltar</button>
+          <h2>Dados do serviço</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Nome</label>
               <input
-                id="titulo"
                 type="text"
-                value={titulo}
-                onChange={(e) => setTitulo(e.target.value)}
-                className="input"
+                id="name"
+                name="name"
+                placeholder="Nome do serviço"
+                value={service.name}
+                onChange={handleChange}
+                required
               />
             </div>
-
-            <div className="campo">
-              <label htmlFor="valor" className="label">Valor</label>
+            <div className="form-group">
+              <label htmlFor="price">Valor</label>
               <input
-                id="valor"
-                type="text"
-                value={valor}
-                onChange={(e) => setValor(e.target.value)}
-                className="input"
+                type="number"
+                step="0.01"
+                id="price"
+                name="price"
+                placeholder="R$ 0,00"
+                value={service.price}
+                onChange={handleChange}
+                required
               />
             </div>
-          </div>
-
-          <div className="campo">
-            <label htmlFor="descricao" className="label">Descrição</label>
-            <textarea
-              id="descricao"
-              value={descricao}
-              onChange={(e) => setDescricao(e.target.value)}
-              className="textarea"
-            />
-          </div>
-
-          <div className="campo">
-            <label htmlFor="categoria" className="label">Categoria</label>
-            <select
-              id="categoria"
-              value={categoria}
-              onChange={(e) => setCategoria(e.target.value)}
-              className="select"
-            >
-              <option value="">Selecione</option>
-              <option value="manutencao">Manutenção</option>
-              <option value="instalacao">Instalação</option>
-              <option value="vendas">Vendas</option>
-              <option value="pecas">Peças</option>
-            </select>
-          </div>
-
-          <div className="botoes">
-            <button className="btn-cancelar" onClick={() => navigate(-1)}>Cancelar</button>
-            <button className="btn-publicar">Salvar e publicar</button>
-          </div>
+            <div className="form-group">
+              <label htmlFor="description">Descrição</label>
+              <textarea
+                id="description"
+                name="description"
+                placeholder="Escreva detalhes sobre o serviço"
+                value={service.description}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label htmlFor="category">Categoria</label>
+              <select
+                id="category"
+                name="category"
+                value={service.category}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Selecione</option>
+                {/* Você pode carregar categorias dinamicamente se quiser */}
+                <option value="categoria1">Categoria 1</option>
+                <option value="categoria2">Categoria 2</option>
+              </select>
+            </div>
+            <div className="buttons">
+              <button type="button" className="cancel-button" onClick={handleCancel}>
+                Cancelar
+              </button>
+              <button type="submit" className="save-button">
+                Salvar e publicar
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-    </div>
     </>
   );
-}
+};
+
+export default EditServicoPage;
